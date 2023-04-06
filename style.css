@@ -45,3 +45,7 @@ body{
 .play-board .food{
     background: #FF0;
 }
+
+.play-board .head{
+    background: rgb(255, 7, 7);
+}

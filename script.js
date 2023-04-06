@@ -1,6 +1,7 @@
 const playBoard = document.querySelector(".play-board");
 
 let foodX = 13, foodY = 10;
+let snakeX = 5, snakeY = 15;
 
 const changeFoodPositioning = () => {
     foodX = Math.floor(Math.random() * 30) + 1;
@@ -10,10 +11,11 @@ const changeFoodPositioning = () => {
 
 const initGame = () => {
     let htmlMarkup = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;
+    htmlMarkup += `<div class="head" style="grid-area: ${snakeY} / ${snakeX}"></div>`;
     playBoard.innerHTML = htmlMarkup;
 }
 
 changeFoodPositioning();
 //on refresh of browser, the food position changes randomly
 initGame();
-//once initGame is called, 'food' is rendered
+//once initGame is called, 'food' and 'snake-head' is rendered
