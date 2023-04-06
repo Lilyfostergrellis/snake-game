@@ -35,6 +35,11 @@ const changeDirection = (e) => {
 const initGame = () => {
     let htmlMarkup = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;
 
+    if(snakeX === foodX && snakeY === foodY) {
+        changeFoodPositioning();
+    }
+    //when the snake head position is equal to the food positioning then the food changes to a new position
+
     snakeX += velocityX;
     snakeY += velocityY;
     //update to position of snake's head based on current velocity on game-board
@@ -46,7 +51,7 @@ const initGame = () => {
 
 changeFoodPositioning();
 //on refresh of browser, the food position changes randomly
-initGame();
-//once initGame is called, 'food' and 'snake-head' is rendered
+setInterval(initGame, 125);
+//once initGame is called, 'food' and 'snake-head' is rendered, snake head moves fluidly on one directional press
 
 document.addEventListener("keydown", changeDirection);
