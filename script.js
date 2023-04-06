@@ -1,14 +1,22 @@
 const playBoard = document.querySelector(".play-board");
 
+let gameOver = false;
 let foodX = 13, foodY = 10;
 let snakeX = 5, snakeY = 15;
 let snakeBody = [];
 let velocityX = 0, velocityY = 0;
+let setIntervalId;
 
 const changeFoodPositioning = () => {
     foodX = Math.floor(Math.random() * 30) + 1;
     foodY = Math.floor(Math.random() * 30) + 1;
     //passes a random value between 0-30 as the food position
+}
+
+const handleGameOver = () => {
+    clearInterval(setIntervalId);
+    alert("Game Over! Press OK to replay!");
+    location.reload();
 }
 
 const changeDirection = (e) => {
@@ -34,6 +42,7 @@ const changeDirection = (e) => {
 }
 
 const initGame = () => {
+    if(gameOver) return handleGameOver();
     let htmlMarkup = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;
 
     if(snakeX === foodX && snakeY === foodY) {
@@ -52,7 +61,10 @@ const initGame = () => {
     snakeY += velocityY;
     //update to position of snake's head based on current velocity on game-board
 
-    
+    if(snakeX <= 0 || snakeX > 30 || snakeY <= 0 || snakeY > 30) {
+        gameOver = true;
+    }
+    //if snake head hits the border, 'game over'
 
     for (let i = 0; i < snakeBody.length; i++) {
         htmlMarkup += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
@@ -64,7 +76,7 @@ const initGame = () => {
 
 changeFoodPositioning();
 //on refresh of browser, the food position changes randomly
-setInterval(initGame, 125);
+setIntervalId = setInterval(initGame, 125);
 //once initGame is called, 'food' and 'snake-head' is rendered, snake head moves fluidly on one directional press
 
 document.addEventListener("keydown", changeDirection);
