@@ -29,8 +29,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Mock-Up
 
-The following animation demonstrates the application functionality:
-![Animation of code quiz. Presses button to start quiz. Clicks the button for the answer to each question, displays if answer was correct or incorrect. Quiz finishes and displays high scores. User adds their intials, then clears their intials and starts over.](./assets/snakeGame.png)
+The following screenshot demonstrates the application functionality:
+!(./assets/snakeGame.png)
 
 
 ## Links
