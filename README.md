@@ -30,7 +30,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Mock-Up
 
 The following screenshot demonstrates the application functionality:
-!(./assets/snakeGame.png)
+![the image displays the browser with the snake game running inside.](./assets/snakeGame.png)
 
 
 ## Links
